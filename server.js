@@ -65,6 +65,26 @@ app.get("/riff/remove", (req, res) => {
 })
 
 
+app.get("/riff/update ", (req, res) => {
+    let data = req.query
+    let _id = req.query.id 
+    for (let key in data){
+        if (key != "_id" )
+        let value = data[key]
+        let o= new Object()
+        
+        o[key] = value
+
+        db.collection("riffs").updateOne( {_id: new mongodb.ObjectID(_id)},{$set:o}).then(
+            res.json({ ok: true })
+        )
+        
+    }
+    
+    
+})
+
+
 
 
 

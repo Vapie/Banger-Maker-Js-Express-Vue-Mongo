@@ -19,7 +19,7 @@ window.song = {
 
 document.addEventListener("DOMContentLoaded", () => {
     addCss()
-    const playgroundContainer =  _("div",document.body,{id:"playgroundcontainer"})
+    const playgroundContainer =  document.getElementById("playgroundcontainer")
     createToolContainer(playgroundContainer)
     const playground =  _("div",playgroundContainer,{id: "playground"})
 
@@ -115,7 +115,7 @@ function createToolContainer(container){
         if (document.getElementById("play-loop").classList.contains("off")) {
 
 
-            playWithSampler()
+            playWithInstrument()
         }
     })
 

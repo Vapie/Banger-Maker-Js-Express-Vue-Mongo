@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Banger-Maker</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -15,11 +15,28 @@
             <div class="tabs-triggers">
                 <div class="tabs-trigger" v-for="(item, index) in categories" :class="[index === active ? 'tabs-trigger--active' : '']" @click="activate(index)">{{categories[index]}}</div>
             </div>
-            <div class="tabs-content" v-if="active === 0">
+            <div class="tabs-content" v-show="active === 0">
+
+                <h1>riffs:</h1>
+                <!--{{ riffs }}-->
+                <h1>filtered riffs</h1>
+                <!--{{ selectRiffById("6044ba4b0d488a3d484d0624") }}-->
+                
+
+                <div id="playgroundcontainer">
+
+                </div>   
+            </div>
+
+            <script src="/js/banger-maker/package/node_modules/tone/build/Tone.js"></script>
+            <script type="module" src="/js/banger-maker/widget.js"></script>
+
+            <div class="tabs-content" v-show="active === 1">
 
             </div>
-            <div class="tabs-content" v-if="active === 1">Content 2</div>
-            <div class="tabs-content" v-if="active === 2">Content 3</div>
+            <div class="tabs-content" v-show="active === 2">
+               
+            </div>
         </div>
 </main>
 
@@ -43,16 +60,10 @@
 
 <!--<main id="app">-->
 <!--    <header>-->
-
-<!--        <h1>MusicPlayerJs</h1>-->
-
 <!--    </header>-->
 <!--    <section>-->
 <!--        <article>-->
-<!--            <h1>riffs:</h1>-->
-<!--            {{ riffs }}-->
-<!--            <h1>filtered riffs</h1>-->
-<!--            {{ selectRiffById("6044ba4b0d488a3d484d0624") }}-->
+
 <!--            <div v-for="riff of riffs">-->
 <!--                <h2>{{riff.name}}</h2>-->
 <!--                <p>-->
