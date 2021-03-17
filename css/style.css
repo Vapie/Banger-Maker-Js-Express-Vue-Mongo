@@ -1,4 +1,47 @@
 
+
+
+
+.custom-button {
+    margin: 10px auto;
+    font-size: large ;
+
+    display: block;
+    -webkit-appearance: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    padding: 5px 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-clip: padding-box;
+    position: relative;
+    color: #FFF;
+}
+
+
+.addform{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color:black;
+    margin:10px;
+    padding:10px;
+    text-align: center;
+    margin-left: 50px;
+}
+.button-play {
+    background-image: linear-gradient(90deg, #3b3b75, #2a2a56);
+}
+
+.button-del {
+    background-image: linear-gradient(90deg, #813030, #dd686e);
+}
+
+.info-content{
+    text-align: center;
+    font-size: 30px;
+}
+
+
 /*js from tabs*/
 *, *:before, *:after {
     box-sizing: border-box;
@@ -58,8 +101,48 @@ body {
 .tabs-content {
     padding: 1rem;
     background-color: #fff;
+
 }
 main{
     width:100%;
     height:100%;
+}
+.card {
+/* Add shadows to create the "card" effect */
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+width:150px;
+    color:black;
+height:200px;
+margin:10px;
+text-align: center;
+    background-image: linear-gradient(to bottom right, #ffffff, #ffffff);
+
+/* On mouse-over, add a deeper shadow */
+
+}
+
+
+.down-card{
+    background-color: #b6baea;
+    border-top:black 2px solid;
+    width:100%;
+    height: 50%;
+    display:inline-block;
+}
+
+.top-card{
+    padding: 5px;
+    height: 50%;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.addform{
+  display:inline-block;
+
 }

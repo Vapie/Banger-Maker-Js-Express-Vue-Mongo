@@ -10,7 +10,7 @@
     overflow-x: scroll;
     margin-left : 50px;
     margin-right: 50px;
-    background: #151d32;
+    background: #1b1b28;
     flex-direction: column;
 }
 #toolcontainer{
@@ -20,8 +20,11 @@
     padding: 5px;
 
 }
-#playgroundcontainer{
-    background-color: #ECA1BD;
+
+button{
+    margin-left: 5px;
+    padding: 2px;
+    font-size: large;
 }
 
 .note-container{
@@ -89,8 +92,8 @@
     background: #0e1321;
 }
 .firstTableItem{
-    background: #151d32;
-    color: #ECA1BD;
+    background: #0e1321;
+    color: #ffffff;
     width:40px;
     font-size: 14px;
     height:12px;

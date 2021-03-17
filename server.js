@@ -31,6 +31,7 @@ client.connect(err => {
 
 app.use("/css", express.static(__dirname + "/css"))
 app.use("/js", express.static(__dirname + "/js"))
+app.use("/images", express.static(__dirname + "/images"))
 
 
 //-------------------------------------------------------ROUTE UNIQUE DE FRONT
@@ -53,8 +54,12 @@ app.get("/riff/list", (req, res) => {
 
 app.get("/riff/add", (req, res) => {
     let riff = req.query
+
     db.collection("riffs").insertOne(riff, (err, docs) => {
-        res.json(docs.ops)
+        //res.json(docs.ops)
+    })
+    db.collection("riffs").find({ }).toArray((err, docs) => {
+        res.json(docs)
     })
 })
 
@@ -62,6 +67,10 @@ app.get("/riff/remove", (req, res) => {
     let id = req.query
     console.log(id["_id"])
     db.collection("riffs").deleteOne({"_id":new mongodb.ObjectID(id["_id"])})
+    db.collection("riffs").find({ }).toArray((err, docs) => {
+        res.json(docs)
+    })
+
 })
 
 
@@ -70,7 +79,7 @@ app.get("/riff/update ", (req, res) => {
     let _id = req.query.id 
     for (let key in data){
         if (key != "_id" )
-        let value = data[key]
+        value = data[key]
         let o= new Object()
         
         o[key] = value

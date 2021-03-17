@@ -32,6 +32,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
+function resetPlayground(){
+    const elements = document.getElementsByClassName('played')
+
+    while(elements.length>0) {
+        console.log(elements.length)
+        console.log(elements[0])
+        elements[0].classList.remove('played')
+
+    }
+    //TODO length as variable
+    window.song["riff"]=createSongContainer(256)
+
+}
 
 function addCss(){
     var link = document.createElement('link');
@@ -74,6 +87,7 @@ function createToolContainer(container){
     const buttontempo4 = _("button",toolcontainer,{text:"♪",id:"tempo4-button",classes:"buttons selected"})
     const buttontempo2 = _("button",toolcontainer,{text:"♫",id:"tempo2-button",classes:"buttons"})
     const buttontempo1 = _("button",toolcontainer,{text:"♬",id:"tempo1-button",classes:"buttons"})
+
     buttontempo8.addEventListener("click",() => {
         window.toolsize  = 8;
         buttontempo8.classList.add("selected")
@@ -109,14 +123,23 @@ function createToolContainer(container){
         playSongWithInstrument()
     })
     const playbutton = _("button",toolcontainer,{text:"Play once",id:"play-button"})
+    const resetbutton = _("button",toolcontainer,{text:"Reset",id:"reset-button"})
     const loopbutton = _("button",toolcontainer,{text:"Loop song",id:"play-loop",classes:"off"})
-
+    _("label",toolcontainer,{text:" Tempo : "})
+    const tempoinput = _("input",toolcontainer,{value:"180",type:"number",id:"quantity",name:"quantity",min:"40",max:"280"})
+    tempoinput.addEventListener("change",(e) => {
+        window.song["tempo"] = tempoinput.value
+    })
     playbutton.addEventListener("click",() => {
         if (document.getElementById("play-loop").classList.contains("off")) {
 
 
             playWithInstrument()
         }
+    })
+    resetbutton.addEventListener("click",() => {
+            resetPlayground()
+
     })
 
     loopbutton.addEventListener("click",() => {
@@ -155,7 +178,6 @@ function playmusic(instrument){
             for (let note in myNoteArray)
             {
                 let mynote = myNoteArray[note]
-                console.log(mynote[0])
                 if (mynote[0] == "+")
                 {
                     //synth.triggerAttack(mynote[1]+mynote[2], count)
