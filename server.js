@@ -58,6 +58,8 @@ app.get("/riff/add", (req, res) => {
     db.collection("riffs").insertOne(riff, (err, docs) => {
         //res.json(docs.ops)
     })
+
+
     db.collection("riffs").find({ }).toArray((err, docs) => {
         res.json(docs)
     })

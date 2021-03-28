@@ -43,12 +43,16 @@ const app =new Vue({
             )
             return filteredRiff
         },
+
         add:function(){
             this.newRiff.customfile = encodeURIComponent(JSON.stringify(window.song))
             console.log(encodeURIComponent(JSON.stringify(window.song)))
             this.ajax("/riff/add",this.newRiff).then(function(response){
                 this.riffs = response.body
                 this.active = 1
+            })
+            this.$http.get("/riff/list").then(function(response){
+                this.riffs = response.body
             })
 
         },
